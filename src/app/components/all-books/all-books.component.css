@@ -1,0 +1,11 @@
+.book {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 15px 0;
+}
+
+.book:last-child {
+    border: none;
+}

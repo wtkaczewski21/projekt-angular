@@ -1,0 +1,17 @@
+.home-heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.home-books-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book {
+    width: 27%;
+    height: 350px;
+    text-align: center;
+}
