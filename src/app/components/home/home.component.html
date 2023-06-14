@@ -1,4 +1,8 @@
 <h2 class="home-heading">Popular Books</h2>
 <div class="home-books-list">
-    <app-popular-book class="book" *ngFor="let book of books" [book]="book"></app-popular-book>
+  <app-popular-book
+    class="book"
+    *ngFor="let book of books | slice : 0 : 5"
+    [book]="book"
+  ></app-popular-book>
 </div>

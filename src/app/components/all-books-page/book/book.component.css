@@ -9,9 +9,16 @@
     margin-right: 10px;
 }
 
-.button {
-    width: 30px;
+.deleteBtn {
+    width: 60px;
     height: 30px;
     background-color: red;
     border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.deleteBtn:hover {
+    background-color: rgb(200, 0, 0);
 }
