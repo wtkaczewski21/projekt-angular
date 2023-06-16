@@ -1,4 +1,6 @@
+import { EventEmitter } from '@angular/core';
 import { Book } from '../../models/Book';
+import { Subject } from 'rxjs';
 
 export class BookStoreService {
     private books: Book[] = [
@@ -10,15 +12,27 @@ export class BookStoreService {
         new Book(6, 'Prince of Thorns', 'Mark Lawrence', "https://cdn.shopify.com/s/files/1/2527/6884/products/lawrence-prince-of-thorns-10.jpg?v=1630430482"),
     ]
 
+    booksChanged = new Subject<Book[]>();
+    // startedEditing = new Subject<number>();
+    bookId: number;
+
     getBooks() {
         return this.books.slice();
+
+    }
+
+    getBookById(id: number) {
+        return this.books.find(book => book.id === id)
     }
 
     addBook(book: Book) {
         this.books.push(book);
     }
 
-    deleteBook(index: number) {
-        this.books.splice(index, 1);
+    deleteBook(id: number) {
+        // this.books = this.books.filter(book => book.id !== id);
+        this.bookId = this.books.findIndex((book) => book.id === id);
+        this.books.splice(this.bookId, 1);
+        this.booksChanged.next(this.books.slice());
     }
 }

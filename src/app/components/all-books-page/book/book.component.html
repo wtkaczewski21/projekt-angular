@@ -5,5 +5,9 @@
     <p>{{ book.author }}</p>
   </div>
 </div>
-<button class="deleteBtn" type="button">Delete</button>
-<!-- <button class="deleteBtn" type="button" (click)="onDeleteBook()">Delete</button> -->
+<div>
+  <button class="editBtn" type="button" (click)="onEditBook()">Edit</button>
+  <button class="deleteBtn" type="button" (click)="onDeleteBook()">
+    Delete
+  </button>
+</div>
