@@ -1,7 +1,11 @@
 <div class="customer-list">
+  <h2 class="customer-header">Customers</h2>
   <div class="addBtn">
-    <h2 class="customer-header">Customers</h2>
-    <button type="button" (click)="onNewCustomer()">Add Customer</button>
+    <p-button
+      label="Add Customer"
+      styleClass="p-button-success"
+      (click)="onNewCustomer()"
+    ></p-button>
   </div>
   <app-customer
     class="customer"

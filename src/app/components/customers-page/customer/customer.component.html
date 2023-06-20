@@ -1,10 +1,13 @@
 <div class="customer">
+  <p>Username: {{ customer.username }}</p>
   <p>First Name: {{ customer.firstName }}</p>
   <p>Last Name: {{ customer.lastName }}</p>
 </div>
-<div>
-  <button class="editBtn" type="button" (click)="onEditCustomer()">Edit</button>
-  <button class="deleteBtn" type="button" (click)="onDeleteCustomer()">
-    Delete
-  </button>
+<div class="actions">
+  <p-button label="Edit" (click)="onEditCustomer()"></p-button>
+  <p-button
+    label="Delete"
+    styleClass="p-button-danger"
+    (click)="onDeleteCustomer()"
+  ></p-button>
 </div>

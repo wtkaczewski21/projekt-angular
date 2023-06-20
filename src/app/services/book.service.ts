@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
-import { Book } from '../../models/Book';
+import { Book } from '../models/Book';
 
-export class BookStoreService {
+export class BookService {
     private books: Book[] = [
         new Book(1, 'Harry Potter', 'J.K. Rowling', 'https://m.media-amazon.com/images/I/71HbYElfY0L._AC_UF1000,1000_QL80_.jpg', true),
         new Book(2, 'The Lord of the Rings', 'J.R.R. Tolkien', 'https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg', true),

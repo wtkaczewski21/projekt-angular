@@ -1,0 +1,8 @@
+<h2 class="favorite-books-heading">Favorite Books</h2>
+<div class="favorite-books-list">
+  <app-favorite-book
+    class="book"
+    *ngFor="let book of favoriteBooks"
+    [book]="book"
+  ></app-favorite-book>
+</div>

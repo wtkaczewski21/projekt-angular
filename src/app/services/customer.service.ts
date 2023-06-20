@@ -3,9 +3,9 @@ import { Customer } from '../models/Customer';
 
 export class CustomerService {
     private customers: Customer[] = [
-        new Customer(1, 'Remus', 'Lupin'),
-        new Customer(2, 'Aragorn', 'Elessar'),
-        new Customer(3, 'John', 'Snow'),
+        new Customer(1, 'RLupin', 'Remus', 'Lupin'),
+        new Customer(2, 'AElessar', 'Aragorn', 'Elessar'),
+        new Customer(3, 'JSnow', 'John', 'Snow'),
     ]
 
     customersChanged = new Subject<Customer[]>();

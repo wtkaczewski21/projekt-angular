@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BookStoreService } from 'src/app/dom-service/store/book-store.service';
+import { BookService } from 'src/app/services/book.service';
 import { Book } from 'src/app/models/Book';
 
 @Component({
@@ -13,7 +13,7 @@ export class EditBookComponent implements OnInit {
   id: number;
   bookForm: FormGroup;
 
-  constructor(private bookService: BookStoreService,
+  constructor(private bookService: BookService,
     private route: ActivatedRoute,
     private router: Router) {
 

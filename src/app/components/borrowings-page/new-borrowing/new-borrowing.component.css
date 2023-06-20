@@ -1,0 +1,32 @@
+.borrow-header {
+    text-align: center;
+ }
+ 
+ .borrow-form {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ 
+ .borrow-form label {
+    margin: 5px 0;
+    font-size: 20px;
+ }
+ 
+ .borrow-form input {
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+ }
+ 
+ .img-responsive {
+    max-width: 150px;
+    max-height: 250px;
+ }
+ 
+ .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 200px
+ }

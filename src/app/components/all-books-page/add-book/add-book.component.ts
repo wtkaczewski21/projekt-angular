@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../../../models/Book';
-import { BookStoreService } from '../../../dom-service/store/book-store.service';
+import { BookService } from '../../../services/book.service';
 
 @Component({
   selector: 'app-add-book',
@@ -11,7 +11,7 @@ import { BookStoreService } from '../../../dom-service/store/book-store.service'
 })
 export class AddBookComponent {
 
-  constructor(private bookService: BookStoreService,
+  constructor(private bookService: BookService,
     private router: Router,
     private route: ActivatedRoute) { }
 

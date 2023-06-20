@@ -1,0 +1,60 @@
+<h2 class="borrow-header">Borrow book</h2>
+<form [formGroup]="borrowForm" (ngSubmit)="onBorrowBook()">
+  <select formControlName="selectedCustomer">
+    <option selected>--Select--</option>
+    <option *ngFor="let customer of customers" [ngValue]="customer.id">
+      {{ customer.username }}
+    </option>
+  </select>
+  <div class="borrow-form">
+    <label for="id">Id</label>
+    <input type="text" id="id" readonly pInputText formControlName="id" />
+  </div>
+  <div class="borrow-form">
+    <label for="title">Title</label>
+    <input
+      class="ng-dirty"
+      type="text"
+      id="title"
+      readonly
+      pInputText
+      formControlName="title"
+    />
+  </div>
+  <div class="borrow-form">
+    <label class="ng-dirty" for="author">Author</label>
+    <input
+      type="text"
+      id="author"
+      readonly
+      pInputText
+      formControlName="author"
+    />
+  </div>
+  <div class="borrow-form">
+    <label class="ng-dirty" for="imgUrl">Image Url</label>
+    <input
+      type="text"
+      id="imgUrl"
+      readonly
+      #imagePath
+      pInputText
+      formControlName="imgUrl"
+    />
+  </div>
+  <div class="borrow-form">
+    <img class="img-responsive" [src]="imagePath.value" />
+  </div>
+  <div class="form-actions">
+    <p-button
+      label="Cancel"
+      styleClass="p-button-danger"
+      (click)="onCancelBorrowing()"
+    ></p-button>
+    <p-button
+      type="submit"
+      label="Confirm"
+      styleClass="p-button-success"
+    ></p-button>
+  </div>
+</form>

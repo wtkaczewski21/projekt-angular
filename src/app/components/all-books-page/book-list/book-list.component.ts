@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Book } from '../../../models/Book';
-import { BookStoreService } from '../../../dom-service/store/book-store.service';
+import { BookService } from '../../../services/book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -15,7 +15,7 @@ export class BookListComponent implements OnInit, OnDestroy {
   id: number;
   private subscription: Subscription;
 
-  constructor(private bookService: BookStoreService,
+  constructor(private bookService: BookService,
     private router: Router,
     private route: ActivatedRoute) {
 

@@ -1,0 +1,44 @@
+<h2 class="edit-header">Edit customer</h2>
+<form [formGroup]="customerForm" (ngSubmit)="onEditCustomer()">
+  <div class="customer-form">
+    <label for="id">Id</label>
+    <input type="text" id="id" readonly pInputText formControlName="id" />
+  </div>
+  <div class="customer-form">
+    <label for="username">Username</label>
+    <input
+      class="ng-dirty"
+      type="text"
+      id="username"
+      pInputText
+      formControlName="username"
+    />
+  </div>
+  <div class="customer-form">
+    <label for="firstName">First Name</label>
+    <input
+      class="ng-dirty"
+      type="text"
+      id="firstName"
+      pInputText
+      formControlName="firstName"
+    />
+  </div>
+  <div class="customer-form">
+    <label class="ng-dirty" for="lastName">Last Name</label>
+    <input type="text" id="lastName" pInputText formControlName="lastName" />
+  </div>
+  <div class="form-actions">
+    <p-button
+      label="Cancel"
+      styleClass="p-button-danger"
+      (click)="onCancelCustomer()"
+    ></p-button>
+    <p-button
+      type="submit"
+      label="Save"
+      styleClass="p-button-success"
+      [disabled]="!customerForm.valid"
+    ></p-button>
+  </div>
+</form>

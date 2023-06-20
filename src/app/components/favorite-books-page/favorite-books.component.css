@@ -1,10 +1,10 @@
-.home-heading {
+.favorite-books-heading {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
 }
 
-.home-books-list {
+.favorite-books-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
