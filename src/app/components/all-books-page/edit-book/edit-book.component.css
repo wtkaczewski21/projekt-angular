@@ -17,48 +17,29 @@
 .book-form input {
    height: 40px;
    width: 300px;
-   padding: 0 7px;
    font-size: 20px;
 }
 
 .img-responsive {
-   max-width: 200px;
-   max-height: 300px;
+   max-width: 150px;
+   max-height: 250px;
+}
+
+.book-checkbox{
+   display: flex;
+   justify-content: center;
+   gap: 5px;
+   font-size: 20px;
+   margin-bottom: 10px;
 }
 
 .form-actions {
    display: flex;
    justify-content: center;
+   gap: 200px
 }
-
-.cancelBtn {
-   width: 75px;
-   height: 30px;
-   border: none;
-   border-radius: 3px;
-   font-size: 18px;
-   background-color: red;
-   cursor: pointer;
-   transition: 0.3s ease;
-   margin: 0 35px;  
-}
-
-.cancelBtn:hover{
-   background-color: rgb(200, 0, 0);
-}
-
-.saveBtn {
-   width: 75px;
-   height: 30px;
-   border: none;
-   border-radius: 3px;
-   font-size: 18px;
-   background-color: greenyellow;
-   cursor: pointer;
-   transition: 0.3s ease;
-   margin: 0 35px;
-}
-
-.saveBtn:hover{
-   background-color: rgb(133, 221, 2);
-}
+/* 
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+   border: 1px solid red;
+} */

@@ -15,6 +15,11 @@ import { AllBooksPageComponent } from './components/all-books-page/all-books-pag
 import { CustomersPageComponent } from './components/customers-page/customers-page.component';
 import { CustomerService } from './dom-service/customer.service';
 import { EditBookComponent } from './components/all-books-page/edit-book/edit-book.component';
+import { CustomersListComponent } from './components/customers-page/customers-list/customers-list.component';
+import { CustomerComponent } from './components/customers-page/customer/customer.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -28,12 +33,17 @@ import { EditBookComponent } from './components/all-books-page/edit-book/edit-bo
     AddBookComponent,
     CustomersPageComponent,
     EditBookComponent,
+    CustomersListComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    InputTextModule,
+    ButtonModule,
+    CheckboxModule
   ],
   providers: [BookStoreService, CustomerService],
   bootstrap: [AppComponent]

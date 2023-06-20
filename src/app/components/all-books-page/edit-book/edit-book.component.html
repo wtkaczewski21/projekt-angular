@@ -1,24 +1,55 @@
 <h2 class="edit-header">Edit book</h2>
-<form>
+<form [formGroup]="bookForm" (ngSubmit)="onEditBook()">
+  <div class="book-form">
+    <label for="id">Id</label>
+    <input type="text" id="id" readonly pInputText formControlName="id" />
+  </div>
   <div class="book-form">
     <label for="title">Title</label>
-    <input type="text" id="title" name="title" />
+    <input
+      class="ng-dirty"
+      type="text"
+      id="title"
+      pInputText
+      formControlName="title"
+    />
   </div>
   <div class="book-form">
-    <label for="author">Author</label>
-    <input type="text" id="author" name="author" />
+    <label class="ng-dirty" for="author">Author</label>
+    <input type="text" id="author" pInputText formControlName="author" />
   </div>
   <div class="book-form">
-    <label for="imgUrl">Image Url</label>
-    <input type="text" id="imgUrl" name="imgUrl" #imagePath />
+    <label class="ng-dirty" for="imgUrl">Image Url</label>
+    <input
+      type="text"
+      id="imgUrl"
+      #imagePath
+      pInputText
+      formControlName="imgUrl"
+    />
   </div>
   <div class="book-form">
     <img class="img-responsive" [src]="imagePath.value" />
   </div>
+  <div class="book-checkbox">
+    <p-checkbox
+      inputId="isFavorite"
+      [binary]="true"
+      formControlName="isFavorite"
+    ></p-checkbox>
+    <label for="isFavorite">Favorite</label>
+  </div>
   <div class="form-actions">
-    <button class="cancelBtn" type="button" (click)="onCancelBook()">
-      Cancel
-    </button>
-    <button class="saveBtn" type="submit">Save</button>
+    <p-button
+      label="Cancel"
+      styleClass="p-button-danger"
+      (click)="onCancelBook()"
+    ></p-button>
+    <p-button
+      type="submit"
+      label="Save"
+      styleClass="p-button-success"
+      [disabled]="!bookForm.valid"
+    ></p-button>
   </div>
 </form>

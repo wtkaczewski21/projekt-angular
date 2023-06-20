@@ -1,0 +1,34 @@
+.customer-header {
+    text-align: center;
+}
+
+.addBtn {
+    text-align: right;
+}
+
+.addBtn button {
+    border: none;
+    width: 100px;
+    height: 50px;
+    background-color: greenyellow;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.addBtn button:hover{
+    background-color: rgb(133, 221, 2);
+}
+
+.customer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 15px 0;
+}
+
+.customer:last-child {
+    border: none;
+}

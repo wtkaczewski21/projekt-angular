@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Book } from '../../../models/Book';
 import { BookStoreService } from '../../../dom-service/store/book-store.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -35,6 +35,6 @@ export class BookListComponent implements OnInit, OnDestroy {
   };
 
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

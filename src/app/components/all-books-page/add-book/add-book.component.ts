@@ -13,13 +13,11 @@ export class AddBookComponent {
 
   constructor(private bookService: BookStoreService,
     private router: Router,
-    private route: ActivatedRoute) {
-
-  }
+    private route: ActivatedRoute) { }
 
   onAddItem(form: NgForm) {
     const value = form.value;
-    const newBook = new Book(value.id, value.title, value.author, value.imgUrl)
+    const newBook = new Book(value.id, value.title, value.author, value.imgUrl, value.isFavorite)
     this.bookService.addBook(newBook);
     this.router.navigate(['/all-books'])
   }

@@ -1,7 +1,11 @@
 <div class="all-books-list">
+  <h2 class="all-books-header">Chose your book</h2>
   <div class="addBtn">
-    <h2 class="all-books-header">Chose your book</h2>
-    <button type="button" (click)="onNewBook()">Add Book</button>
+    <p-button
+      label="Add Book"
+      styleClass="p-button-success"
+      (click)="onNewBook()"
+    ></p-button>
   </div>
   <app-book class="book" *ngFor="let book of books" [book]="book"></app-book>
 </div>

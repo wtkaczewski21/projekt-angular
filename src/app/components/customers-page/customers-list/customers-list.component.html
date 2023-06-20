@@ -1,0 +1,11 @@
+<div class="customer-list">
+  <div class="addBtn">
+    <h2 class="customer-header">Customers</h2>
+    <button type="button" (click)="onNewCustomer()">Add Customer</button>
+  </div>
+  <app-customer
+    class="customer"
+    *ngFor="let customer of customers"
+    [customer]="customer"
+  ></app-customer>
+</div>

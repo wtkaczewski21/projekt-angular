@@ -5,9 +5,28 @@
     <p>{{ book.author }}</p>
   </div>
 </div>
-<div>
-  <button class="editBtn" type="button" (click)="onEditBook()">Edit</button>
-  <button class="deleteBtn" type="button" (click)="onDeleteBook()">
-    Delete
-  </button>
+<div class="favIcon">
+  <ng-template [ngIf]="book.isFavorite == false" [ngIfElse]="favorites">
+    <p-button
+      icon="pi pi-star"
+      styleClass="p-button-rounded p-button-help p-button-text"
+      (click)="favoritesToggle()"
+    ></p-button>
+  </ng-template>
+
+  <ng-template #favorites>
+    <p-button
+      icon="pi pi-star-fill"
+      styleClass="p-button-rounded p-button-help p-button-text"
+      (click)="favoritesToggle()"
+    ></p-button>
+  </ng-template>
+</div>
+<div class="actions">
+  <p-button label="Edit" (click)="onEditBook()"></p-button>
+  <p-button
+    label="Delete"
+    styleClass="p-button-danger"
+    (click)="onDeleteBook()"
+  ></p-button>
 </div>

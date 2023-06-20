@@ -9,11 +9,13 @@ import { BookStoreService } from '../../dom-service/store/book-store.service';
 })
 export class HomeComponent implements OnInit {
   books: Book[];
+  favoriteBooks: Book[];
 
   constructor(private bookStoreService: BookStoreService) {
   }
 
   ngOnInit() {
     this.books = this.bookStoreService.getBooks();
+    this.favoriteBooks = this.books.filter(book => book.isFavorite == true);
   }
 }

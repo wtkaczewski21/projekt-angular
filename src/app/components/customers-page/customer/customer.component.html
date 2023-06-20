@@ -1,0 +1,10 @@
+<div class="customer">
+  <p>First Name: {{ customer.firstName }}</p>
+  <p>Last Name: {{ customer.lastName }}</p>
+</div>
+<div>
+  <button class="editBtn" type="button" (click)="onEditCustomer()">Edit</button>
+  <button class="deleteBtn" type="button" (click)="onDeleteCustomer()">
+    Delete
+  </button>
+</div>
