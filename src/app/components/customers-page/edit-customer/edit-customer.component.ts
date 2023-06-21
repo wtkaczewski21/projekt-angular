@@ -49,12 +49,12 @@ export class EditCustomerComponent {
   }
 
   onEditCustomer() {
-    const newCustomer = new Customer(
-      this.customerForm.value['id'],
-      this.customerForm.value['username'],
-      this.customerForm.value['firstName'],
-      this.customerForm.value['lastName']
-    );
+    const newCustomer: Customer = {
+      id: this.customerForm.value['id'],
+      username: this.customerForm.value['username'],
+      firstName: this.customerForm.value['firstName'],
+      lastName: this.customerForm.value['lastName']
+    }
 
     this.customerService.updateCustomer(this.id, newCustomer);
     this.router.navigate(['/customers']);

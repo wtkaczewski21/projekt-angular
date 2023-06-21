@@ -15,8 +15,12 @@
 }
 
 .logo-text {
-    font-size: 30px;
+    font-size: 24px;
     color: black;
+}
+
+.logo-text:hover{
+    color: #66b3ff
 }
 
 .header ul {
@@ -36,4 +40,8 @@
 .header-link {
     font-size: 20px;
     color: black;
+}
+
+.header-link:hover{
+    color: #66b3ff
 }

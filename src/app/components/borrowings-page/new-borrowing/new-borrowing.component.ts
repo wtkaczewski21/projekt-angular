@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Borrowing } from 'src/app/models/Borrowing';
-import { Customer } from 'src/app/models/Customer';
-import { BookService } from 'src/app/services/book.service';
 import { BorrowingService } from 'src/app/services/borrowing.service';
+import { BookService } from 'src/app/services/book.service';
+import { Customer } from 'src/app/models/Customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -15,14 +15,13 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class NewBorrowingComponent implements OnInit {
   id: number;
   customers: Customer[];
-  borrowForm: FormGroup;
+  borrowingForm: FormGroup;
 
   constructor(private bookService: BookService,
     private customerService: CustomerService,
     private borrowingService: BorrowingService,
     private router: Router,
-    private route: ActivatedRoute,
-    private formBuiler: FormBuilder) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -31,13 +30,10 @@ export class NewBorrowingComponent implements OnInit {
         this.initForm();
       }
     );
-    this.customers = this.customerService.getCustomers();
-    this.borrowForm.get('selectedCustomer')?.valueChanges.subscribe((res: number) => {
-      console.log(res);
-    })
   }
 
   private initForm() {
+    this.customers = this.customerService.getCustomers();
     let selectedCustomer = '';
     let bookId;
     let bookTitle = '';
@@ -50,23 +46,23 @@ export class NewBorrowingComponent implements OnInit {
     bookAuthor = book.author;
     bookImgUrl = book.imgUrl;
 
-    this.borrowForm = new FormGroup({
-      'selectedCustomer': new FormControl(),
-      'id': new FormControl(bookId),
-      'title': new FormControl(bookTitle),
-      'author': new FormControl(bookAuthor),
-      'imgUrl': new FormControl(bookImgUrl)
+    this.borrowingForm = new FormGroup({
+      'selectedCustomer': new FormControl(null, Validators.required),
+      'id': new FormControl(bookId, Validators.required),
+      'title': new FormControl(bookTitle, Validators.required),
+      'author': new FormControl(bookAuthor, Validators.required),
+      'imgUrl': new FormControl(bookImgUrl, Validators.required)
     });
   }
 
   onBorrowBook() {
-    const newBorrow = new Borrowing(
-      this.borrowForm.value[''],
-      this.borrowForm.value['id'],
-      this.borrowForm.value['selectedCustomer']);
-    ;
+    const newBorrow: Borrowing = {
+      id: this.borrowingForm.value[''],
+      bookId: this.borrowingForm.value['id'],
+      customerId: this.borrowingForm.value['selectedCustomer']
+    };
 
-    this.borrowingService.updateBorrowing(this.id, newBorrow);
+    this.borrowingService.addBorrowing(newBorrow);
     this.router.navigate(['/borrowings']);
   }
 

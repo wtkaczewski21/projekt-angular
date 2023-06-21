@@ -1,0 +1,17 @@
+.borrowings-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+        
+.borrowing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 15px 0;
+}
+
+.borrowing:last-child {
+    border: none;
+}

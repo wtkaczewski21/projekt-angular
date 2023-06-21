@@ -18,6 +18,7 @@ import { CustomerComponent } from './components/customers-page/customer/customer
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
 import { BorrowingsPageComponent } from './components/borrowings-page/borrowings-page.component';
 import { AddCustomerComponent } from './components/customers-page/add-customer/add-customer.component';
 import { EditCustomerComponent } from './components/customers-page/edit-customer/edit-customer.component';
@@ -26,6 +27,8 @@ import { FavoriteBookComponent } from './components/favorite-books-page/favorite
 import { BorrowingsListComponent } from './components/borrowings-page/borrowings-list/borrowings-list.component';
 import { NewBorrowingComponent } from './components/borrowings-page/new-borrowing/new-borrowing.component';
 import { BorrowingService } from './services/borrowing.service';
+import { BorrowingComponent } from './components/borrowings-page/borrowing/borrowing.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { BorrowingService } from './services/borrowing.service';
     FavoriteBookComponent,
     BorrowingsListComponent,
     NewBorrowingComponent,
+    BorrowingComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,9 @@ import { BorrowingService } from './services/borrowing.service';
     AppRoutingModule,
     InputTextModule,
     ButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   providers: [BookService, CustomerService, BorrowingService],
   bootstrap: [AppComponent]

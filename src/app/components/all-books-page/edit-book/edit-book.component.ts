@@ -14,10 +14,8 @@ export class EditBookComponent implements OnInit {
   bookForm: FormGroup;
 
   constructor(private bookService: BookService,
-    private route: ActivatedRoute,
-    private router: Router) {
-
-  }
+    private router: Router,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -45,22 +43,22 @@ export class EditBookComponent implements OnInit {
     isFavorite = book.isFavorite;
 
     this.bookForm = new FormGroup({
-      'id': new FormControl(bookId, Validators.required),
+      'id': new FormControl(bookId),
       'title': new FormControl(bookTitle, Validators.required),
       'author': new FormControl(bookAuthor, Validators.required),
       'imgUrl': new FormControl(bookImgUrl, Validators.required),
-      'isFavorite': new FormControl(isFavorite, Validators.required)
+      'isFavorite': new FormControl(isFavorite)
     });
   }
 
   onEditBook() {
-    const newBook = new Book(
-      this.bookForm.value['id'],
-      this.bookForm.value['title'],
-      this.bookForm.value['author'],
-      this.bookForm.value['imgUrl'],
-      this.bookForm.value['isFavorite']);
-    ;
+    const newBook: Book = {
+      id: this.bookForm.value['id'],
+      title: this.bookForm.value['title'],
+      author: this.bookForm.value['author'],
+      imgUrl: this.bookForm.value['imgUrl'],
+      isFavorite: this.bookForm.value['isFavorite']
+    };
 
     this.bookService.updateBook(this.id, newBook);
     this.router.navigate(['/all-books']);
@@ -70,3 +68,5 @@ export class EditBookComponent implements OnInit {
     this.router.navigate(['/all-books']);
   }
 }
+
+

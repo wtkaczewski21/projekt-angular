@@ -1,16 +1,16 @@
-<h2 class="borrow-header">Borrow book</h2>
-<form [formGroup]="borrowForm" (ngSubmit)="onBorrowBook()">
-  <select formControlName="selectedCustomer">
-    <option selected>--Select--</option>
-    <option *ngFor="let customer of customers" [ngValue]="customer.id">
-      {{ customer.username }}
-    </option>
-  </select>
-  <div class="borrow-form">
-    <label for="id">Id</label>
-    <input type="text" id="id" readonly pInputText formControlName="id" />
-  </div>
-  <div class="borrow-form">
+<h2 class="borrowing-header">Borrow book</h2>
+<form [formGroup]="borrowingForm" (ngSubmit)="onBorrowBook()">
+  <p-dropdown
+    class="borrowing-form ng-dirty"
+    formControlName="selectedCustomer"
+    [options]="customers"
+    optionLabel="username"
+    placeholder="Select a Customer"
+    optionValue="id"
+    [required]="true"
+  >
+  </p-dropdown>
+  <div class="borrowing-form">
     <label for="title">Title</label>
     <input
       class="ng-dirty"
@@ -21,8 +21,8 @@
       formControlName="title"
     />
   </div>
-  <div class="borrow-form">
-    <label class="ng-dirty" for="author">Author</label>
+  <div class="borrowing-form">
+    <label for="author">Author</label>
     <input
       type="text"
       id="author"
@@ -31,18 +31,18 @@
       formControlName="author"
     />
   </div>
-  <div class="borrow-form">
-    <label class="ng-dirty" for="imgUrl">Image Url</label>
+  <div class="borrowing-form">
     <input
       type="text"
       id="imgUrl"
       readonly
       #imagePath
+      hidden
       pInputText
       formControlName="imgUrl"
     />
   </div>
-  <div class="borrow-form">
+  <div class="borrowing-form">
     <img class="img-responsive" [src]="imagePath.value" />
   </div>
   <div class="form-actions">
@@ -55,6 +55,7 @@
       type="submit"
       label="Confirm"
       styleClass="p-button-success"
+      [disabled]="!borrowingForm.valid"
     ></p-button>
   </div>
 </form>

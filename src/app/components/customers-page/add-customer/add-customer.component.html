@@ -1,35 +1,32 @@
-<form (ngSubmit)="onAddCustomer(f)" #f="ngForm">
+<form [formGroup]="customerForm" (ngSubmit)="onAddCustomer()">
   <div class="customer-form">
     <label for="username">Username</label>
     <input
-      class="ng-dirty"
+      class="ng-touched"
       type="text"
       id="username"
-      name="username"
       pInputText
-      ngModel
+      formControlName="username"
     />
   </div>
   <div class="customer-form">
     <label for="firstName">First Name</label>
     <input
-      class="ng-dirty"
+      class="ng-touched"
       type="text"
       id="firstName"
-      name="firstName"
       pInputText
-      ngModel
+      formControlName="firstName"
     />
   </div>
   <div class="customer-form">
     <label for="lastName">Last Name</label>
     <input
-      class="ng-dirty"
+      class="ng-touched"
       type="text"
       id="lastName"
-      name="lastName"
       pInputText
-      ngModel
+      formControlName="lastName"
     />
   </div>
   <div class="form-actions">
@@ -42,6 +39,7 @@
       type="submit"
       label="Add"
       styleClass="p-button-success"
+      [disabled]="!customerForm.valid"
     ></p-button>
   </div>
 </form>

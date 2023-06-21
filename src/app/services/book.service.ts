@@ -2,13 +2,13 @@ import { Subject } from 'rxjs';
 import { Book } from '../models/Book';
 
 export class BookService {
-    private books: Book[] = [
-        new Book(1, 'Harry Potter', 'J.K. Rowling', 'https://m.media-amazon.com/images/I/71HbYElfY0L._AC_UF1000,1000_QL80_.jpg', true),
-        new Book(2, 'The Lord of the Rings', 'J.R.R. Tolkien', 'https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg', true),
-        new Book(3, 'Game of Thrones', 'George R.R. Martin', "https://s.lubimyczytac.pl/upload/books/137000/137192/352x500.jpg", false),
-        new Book(4, 'The Dark Tower', 'Stephen King', "https://m.media-amazon.com/images/I/81qsxzC-fNL._AC_UF1000,1000_QL80_.jpg", false),
-        new Book(5, 'The Chronicles of Narnia', 'C.S. Lewis', "https://g.christianbook.com/g/slideshow/9/98247/main/98247_1_ftc_dp.jpg", true),
-        new Book(6, 'Prince of Thorns', 'Mark Lawrence', "https://cdn.shopify.com/s/files/1/2527/6884/products/lawrence-prince-of-thorns-10.jpg?v=1630430482", false),
+    private books: Array<Book> = [
+        { id: 1, title: 'Harry Potter', author: 'J.K. Rowling', imgUrl: 'https://m.media-amazon.com/images/I/71HbYElfY0L._AC_UF1000,1000_QL80_.jpg', isFavorite: true },
+        { id: 2, title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', imgUrl: 'https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg', isFavorite: true },
+        { id: 3, title: 'Game of Thrones', author: 'George R.R. Martin', imgUrl: "https://s.lubimyczytac.pl/upload/books/137000/137192/352x500.jpg", isFavorite: false },
+        { id: 4, title: 'The Dark Tower', author: 'Stephen King', imgUrl: "https://m.media-amazon.com/images/I/81qsxzC-fNL._AC_UF1000,1000_QL80_.jpg", isFavorite: false },
+        { id: 5, title: 'The Chronicles of Narnia', author: 'C.S. Lewis', imgUrl: "https://g.christianbook.com/g/slideshow/9/98247/main/98247_1_ftc_dp.jpg", isFavorite: true },
+        { id: 6, title: 'Prince of Thorns', author: 'Mark Lawrence', imgUrl: "https://cdn.shopify.com/s/files/1/2527/6884/products/lawrence-prince-of-thorns-10.jpg?v=1630430482", isFavorite: false },
     ]
 
     booksChanged = new Subject<Book[]>();
@@ -34,10 +34,6 @@ export class BookService {
         }
         this.books.push({ ...book, id: autoId });
     }
-
-    // addBook(book: Book) {
-    //     this.books.push(book);
-    // }
 
     updateBook(id: number, newBook: Book) {
         let bookUpdate = this.books.findIndex(book => book.id === id);

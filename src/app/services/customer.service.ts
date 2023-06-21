@@ -2,10 +2,10 @@ import { Subject } from 'rxjs';
 import { Customer } from '../models/Customer';
 
 export class CustomerService {
-    private customers: Customer[] = [
-        new Customer(1, 'RLupin', 'Remus', 'Lupin'),
-        new Customer(2, 'AElessar', 'Aragorn', 'Elessar'),
-        new Customer(3, 'JSnow', 'John', 'Snow'),
+    private customers: Array<Customer> = [
+        { id: 1, username: 'RLupin', firstName: 'Remus', lastName: 'Lupin' },
+        { id: 2, username: 'AElessar', firstName: 'Aragorn', lastName: 'Elessar' },
+        { id: 3, username: 'JSnow', firstName: 'John', lastName: 'Snow' },
     ]
 
     customersChanged = new Subject<Customer[]>();

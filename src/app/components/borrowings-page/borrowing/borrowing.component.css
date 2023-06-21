@@ -1,0 +1,30 @@
+.borrowing {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.book {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: 18px;
+}
+
+.book-img {
+    width: 100px;
+    height: 125px;
+    margin-right: 10px;
+}
+
+.customer-details {
+    font-size: 18px;
+    flex: 1;
+    text-align: center;
+}
+
+.actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}

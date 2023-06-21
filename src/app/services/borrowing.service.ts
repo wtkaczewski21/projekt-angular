@@ -2,10 +2,10 @@ import { Subject } from "rxjs";
 import { Borrowing } from "../models/Borrowing";
 
 export class BorrowingService {
-    private borrowings: Borrowing[] = [
-        new Borrowing(1, 1, 1),
-        new Borrowing(2, 2, 3),
-        new Borrowing(3, 3, 2),
+    private borrowings: Array<Borrowing> = [
+        { id: 1, bookId: 1, customerId: 1 },
+        { id: 2, bookId: 2, customerId: 3 },
+        { id: 3, bookId: 3, customerId: 2 },
     ]
 
     borrowingsChanged = new Subject<Borrowing[]>();
@@ -30,11 +30,6 @@ export class BorrowingService {
             autoId = 1;
         }
         this.borrowings.push({ ...borrowing, id: autoId });
-    }
-
-    updateBorrowing(id: number, newBorrowing: Borrowing) {
-        let borrowingUpdate = this.borrowings.findIndex(borrowing => borrowing.id === id);
-        this.borrowings[borrowingUpdate] = newBorrowing;
     }
 
     deleteBorrowing(id: number) {

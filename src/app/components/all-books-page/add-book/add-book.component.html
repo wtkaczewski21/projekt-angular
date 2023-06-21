@@ -1,36 +1,33 @@
-<form (ngSubmit)="onAddItem(f)" #f="ngForm">
+<form [formGroup]="bookForm" (ngSubmit)="onAddBook()">
   <div class="book-form">
     <label for="title">Title</label>
     <input
-      class="ng-dirty"
+      class="ng-touched"
       type="text"
       id="title"
-      name="title"
       pInputText
-      ngModel
+      formControlName="title"
     />
   </div>
   <div class="book-form">
     <label for="author">Author</label>
     <input
-      class="ng-dirty"
+      class="ng-touched"
       type="text"
       id="author"
-      name="author"
       pInputText
-      ngModel
+      formControlName="author"
     />
   </div>
   <div class="book-form">
     <label for="imgUrl">Image Url</label>
     <input
-      class="ng-dirty"
+      class="ng-touched"
       type="text"
       id="imgUrl"
-      name="imgUrl"
       #imagePath
       pInputText
-      ngModel
+      formControlName="imgUrl"
     />
   </div>
   <div class="book-form">
@@ -38,11 +35,11 @@
   </div>
   <div class="book-checkbox">
     <p-checkbox
-      name="isFavorite"
-      value="Favorite"
-      label="Favorite"
-      ngModel
+      inputId="isFavorite"
+      [binary]="true"
+      formControlName="isFavorite"
     ></p-checkbox>
+    <label for="isFavorite">Favorite</label>
   </div>
   <div class="form-actions">
     <p-button
@@ -54,6 +51,7 @@
       type="submit"
       label="Add"
       styleClass="p-button-success"
+      [disabled]="!bookForm.valid"
     ></p-button>
   </div>
 </form>
