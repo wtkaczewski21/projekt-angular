@@ -24,8 +24,6 @@ export class EditBookComponent implements OnInit {
         this.initForm();
       }
     );
-
-    // this.id = (Number)(this.route.snapshot.params.id)
   }
 
   private initForm() {
@@ -34,6 +32,7 @@ export class EditBookComponent implements OnInit {
     let bookAuthor = '';
     let bookImgUrl = '';
     let isFavorite = false;
+    let availableCopies;
 
     const book = this.bookService.getBookById(this.id);
     bookId = book.id;
@@ -41,13 +40,15 @@ export class EditBookComponent implements OnInit {
     bookAuthor = book.author;
     bookImgUrl = book.imgUrl;
     isFavorite = book.isFavorite;
+    availableCopies = book.availableCopies;
 
     this.bookForm = new FormGroup({
       'id': new FormControl(bookId),
       'title': new FormControl(bookTitle, Validators.required),
       'author': new FormControl(bookAuthor, Validators.required),
       'imgUrl': new FormControl(bookImgUrl, Validators.required),
-      'isFavorite': new FormControl(isFavorite)
+      'isFavorite': new FormControl(isFavorite),
+      'availableCopies': new FormControl(availableCopies, Validators.required),
     });
   }
 
@@ -57,7 +58,8 @@ export class EditBookComponent implements OnInit {
       title: this.bookForm.value['title'],
       author: this.bookForm.value['author'],
       imgUrl: this.bookForm.value['imgUrl'],
-      isFavorite: this.bookForm.value['isFavorite']
+      isFavorite: this.bookForm.value['isFavorite'],
+      availableCopies: this.bookForm.value['availableCopies']
     };
 
     this.bookService.updateBook(this.id, newBook);

@@ -5,12 +5,12 @@
     <p>{{ book.author }}</p>
   </div>
 </div>
-<div class="fav-borrow">
-  <ng-template [ngIf]="book.isFavorite == false" [ngIfElse]="favorites">
+<div class="favorite">
+  <ng-template [ngIf]="book.isFavorite === false" [ngIfElse]="favorites">
     <p-button
       icon="pi pi-star"
       styleClass="p-button-rounded p-button-help p-button-text"
-      (click)="favoritesToggle()"
+      (onClick)="favoritesToggle()"
     ></p-button>
   </ng-template>
 
@@ -18,22 +18,25 @@
     <p-button
       icon="pi pi-star-fill"
       styleClass="p-button-rounded p-button-help p-button-text"
-      (click)="favoritesToggle()"
+      (onClick)="favoritesToggle()"
     ></p-button>
   </ng-template>
-  <div class="borrowBtn">
-    <p-button
-      label="Borrow Book"
-      styleClass="p-button-warning"
-      (click)="onBorrowBook()"
-    ></p-button>
-  </div>
 </div>
+<div class="book-copies">
+  <p>Available copies: {{ book.availableCopies }}</p>
+</div>
+<p-button
+  class=""
+  label="Borrow Book"
+  styleClass="p-button-warning"
+  (onClick)="onBorrowBook()"
+  [disabled]="book.availableCopies === 0"
+></p-button>
 <div class="actions">
-  <p-button label="Edit" (click)="onEditBook()"></p-button>
+  <p-button label="Edit" (onClick)="onEditBook()"></p-button>
   <p-button
     label="Delete"
     styleClass="p-button-danger"
-    (click)="onDeleteBook()"
+    (onClick)="onDeleteBook()"
   ></p-button>
 </div>

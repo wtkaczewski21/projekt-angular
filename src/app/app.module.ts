@@ -29,6 +29,8 @@ import { NewBorrowingComponent } from './components/borrowings-page/new-borrowin
 import { BorrowingService } from './services/borrowing.service';
 import { BorrowingComponent } from './components/borrowings-page/borrowing/borrowing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerBorrowingsComponent } from './components/customers-page/customer-borrowings/customer-borrowings.component';
+import { CustomerBookComponent } from './components/customers-page/customer-book/customer-book.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BorrowingsListComponent,
     NewBorrowingComponent,
     BorrowingComponent,
+    CustomerBorrowingsComponent,
+    CustomerBookComponent,
   ],
   imports: [
     BrowserModule,

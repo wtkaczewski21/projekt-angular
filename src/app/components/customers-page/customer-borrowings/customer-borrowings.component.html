@@ -1,0 +1,8 @@
+<h2 class="borrowings-header">This Customer Borrowings:</h2>
+<div class="borrowings-list">
+  <app-customer-book
+    class="book"
+    *ngFor="let borrowing of borrowings"
+    [borrowing]="borrowing"
+  ></app-customer-book>
+</div>

@@ -63,7 +63,7 @@ export class NewBorrowingComponent implements OnInit {
     };
 
     this.borrowingService.addBorrowing(newBorrow);
-    this.router.navigate(['/borrowings']);
+    this.router.navigate(['/all-books']);
   }
 
   onCancelBorrowing() {

@@ -3,11 +3,18 @@
   <p>First Name: {{ customer.firstName }}</p>
   <p>Last Name: {{ customer.lastName }}</p>
 </div>
+<div class="display-books">
+  <p-button
+    label="Display borrowed books"
+    styleClass="p-button-warning"
+    (onClick)="onDisplayBorrowings()"
+  ></p-button>
+</div>
 <div class="actions">
-  <p-button label="Edit" (click)="onEditCustomer()"></p-button>
+  <p-button label="Edit" (onClick)="onEditCustomer()"></p-button>
   <p-button
     label="Delete"
     styleClass="p-button-danger"
-    (click)="onDeleteCustomer()"
+    (onClick)="onDeleteCustomer()"
   ></p-button>
 </div>

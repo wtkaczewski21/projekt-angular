@@ -7,6 +7,8 @@
     optionLabel="username"
     placeholder="Select a Customer"
     optionValue="id"
+    [filter]="true"
+    filterBy="username"
     [required]="true"
   >
   </p-dropdown>
@@ -49,7 +51,7 @@
     <p-button
       label="Cancel"
       styleClass="p-button-danger"
-      (click)="onCancelBorrowing()"
+      (onClick)="onCancelBorrowing()"
     ></p-button>
     <p-button
       type="submit"

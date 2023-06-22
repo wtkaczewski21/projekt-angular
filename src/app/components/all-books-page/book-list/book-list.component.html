@@ -4,7 +4,7 @@
     <p-button
       label="Add Book"
       styleClass="p-button-success"
-      (click)="onNewBook()"
+      (onClick)="onNewBook()"
     ></p-button>
   </div>
   <app-book class="book" *ngFor="let book of books" [book]="book"></app-book>

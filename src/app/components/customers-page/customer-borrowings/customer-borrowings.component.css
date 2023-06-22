@@ -1,0 +1,18 @@
+.borrowings-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.borrowings-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px
+}
+
+.book {
+    width: 20%;
+    height: 350px;
+    text-align: center;
+}

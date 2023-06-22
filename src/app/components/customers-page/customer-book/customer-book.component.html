@@ -1,0 +1,14 @@
+<div class="book">
+  <img class="book-img" src="{{ book.imgUrl }}" />
+  <div class="book-details">
+    <p>{{ book.title }}</p>
+    <p>{{ book.author }}</p>
+  </div>
+</div>
+<div class="actions">
+  <p-button
+    label="Return book"
+    styleClass="p-button-secondary"
+    (onClick)="onReturnBook()"
+  ></p-button>
+</div>

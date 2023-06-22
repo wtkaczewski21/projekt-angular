@@ -1,12 +1,21 @@
 .customer {
 font-size: 20px;
+flex: 1;
 }
 
 .customer p:first-child {
     font-weight: bold;
 }
 
+.display-books {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
 .actions {
     display: flex;
     gap: 10px;
+    flex: 1;
+    justify-content: flex-end;
 }

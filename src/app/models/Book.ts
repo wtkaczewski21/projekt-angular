@@ -4,4 +4,5 @@ export interface Book {
     author: string;
     imgUrl: string;
     isFavorite: boolean;
+    availableCopies: number;
 }

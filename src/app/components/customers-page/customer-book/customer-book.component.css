@@ -1,0 +1,23 @@
+.book {
+    background-color: #66b3ff;
+    border-radius: 8px;
+    margin-bottom: 7px;
+}
+
+.book-img {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+.book-details{
+    padding-bottom: 8px;
+}
+.book-details p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}

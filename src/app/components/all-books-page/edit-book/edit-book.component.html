@@ -1,10 +1,6 @@
 <h2 class="edit-header">Edit book</h2>
 <form [formGroup]="bookForm" (ngSubmit)="onEditBook()">
   <div class="book-form">
-    <label for="id">Id</label>
-    <input type="text" id="id" readonly pInputText formControlName="id" />
-  </div>
-  <div class="book-form">
     <label for="title">Title</label>
     <input
       class="ng-dirty"
@@ -17,6 +13,15 @@
   <div class="book-form">
     <label class="ng-dirty" for="author">Author</label>
     <input type="text" id="author" pInputText formControlName="author" />
+  </div>
+  <div class="book-form available-copies">
+    <label class="ng-dirty" for="availableCopies">Available Copies</label>
+    <input
+      type="number"
+      id="availableCopies"
+      pInputText
+      formControlName="availableCopies"
+    />
   </div>
   <div class="book-form">
     <label for="imgUrl">Image Url</label>
@@ -44,7 +49,7 @@
     <p-button
       label="Cancel"
       styleClass="p-button-danger"
-      (click)="onCancelBook()"
+      (onClick)="onCancelBook()"
     ></p-button>
     <p-button
       type="submit"

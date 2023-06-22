@@ -13,6 +13,7 @@ import { EditCustomerComponent } from "./components/customers-page/edit-customer
 import { FavoriteBooksComponent } from "./components/favorite-books-page/favorite-books.component";
 import { BorrowingsListComponent } from "./components/borrowings-page/borrowings-list/borrowings-list.component";
 import { NewBorrowingComponent } from "./components/borrowings-page/new-borrowing/new-borrowing.component";
+import { CustomerBorrowingsComponent } from "./components/customers-page/customer-borrowings/customer-borrowings.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'all-books', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
             { path: '', component: CustomersListComponent },
             { path: 'new', component: AddCustomerComponent },
             { path: 'edit/:id', component: EditCustomerComponent },
+            { path: ':id/:username/borrowed-books', component: CustomerBorrowingsComponent },
         ]
     },
     {

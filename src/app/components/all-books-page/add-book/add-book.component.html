@@ -19,6 +19,16 @@
       formControlName="author"
     />
   </div>
+  <div class="book-form available-copies">
+    <label for="availableCopies">Available Copies</label>
+    <input
+      class="ng-touched"
+      type="number"
+      id="availableCopies"
+      pInputText
+      formControlName="availableCopies"
+    />
+  </div>
   <div class="book-form">
     <label for="imgUrl">Image Url</label>
     <input
@@ -45,7 +55,7 @@
     <p-button
       label="Cancel"
       styleClass="p-button-danger"
-      (click)="onCancelBook()"
+      (onClick)="onCancelBook()"
     ></p-button>
     <p-button
       type="submit"

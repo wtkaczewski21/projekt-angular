@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Book } from '../../../models/Book';
 import { BookService } from '../../../services/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BorrowingService } from 'src/app/services/borrowing.service';
 
 @Component({
     selector: 'app-book',
@@ -10,9 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BookComponent {
     @Input() book: Book;
-    id: number
+    // id: number;
 
     constructor(private bookService: BookService,
+        private borrowingService: BorrowingService,
         private router: Router,
         private route: ActivatedRoute) {
 
@@ -31,6 +33,13 @@ export class BookComponent {
     }
 
     onDeleteBook() {
-        this.bookService.deleteBook(this.book.id);
+        const isBorrowed = this.borrowingService.getBorrowingsByBookId(this.book.id)
+        console.log(isBorrowed)
+
+        if (isBorrowed.length > 0) {
+            alert('Return all borrowed copies of this book before deleting')
+        } else {
+            this.bookService.deleteBook(this.book.id);
+        }
     }
 }

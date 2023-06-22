@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/models/Customer';
+import { BorrowingService } from 'src/app/services/borrowing.service';
 
 @Component({
   selector: 'app-customer',
@@ -10,12 +11,17 @@ import { Customer } from 'src/app/models/Customer';
 })
 export class CustomerComponent {
   @Input() customer: Customer;
-  id: number
+  // id: number
 
   constructor(private customerService: CustomerService,
+    private borrowingService: BorrowingService,
     private router: Router,
     private route: ActivatedRoute) {
 
+  }
+
+  onDisplayBorrowings() {
+    this.router.navigate([this.customer.id + '/' + this.customer.username + '/borrowed-books'], { relativeTo: this.route });
   }
 
   onEditCustomer() {
@@ -23,6 +29,13 @@ export class CustomerComponent {
   }
 
   onDeleteCustomer() {
-    this.customerService.deleteCustomer(this.customer.id);
+    const isBorrowed = this.borrowingService.getBorrowingsByCustomerId(this.customer.id)
+    console.log(isBorrowed)
+
+    if (isBorrowed.length > 0) {
+      alert('Return all borrowed books before deleting')
+    } else {
+      this.customerService.deleteCustomer(this.customer.id);
+    }
   }
 }

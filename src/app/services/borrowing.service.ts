@@ -1,23 +1,35 @@
 import { Subject } from "rxjs";
 import { Borrowing } from "../models/Borrowing";
+import { BookService } from "./book.service";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class BorrowingService {
     private borrowings: Array<Borrowing> = [
         { id: 1, bookId: 1, customerId: 1 },
         { id: 2, bookId: 2, customerId: 3 },
         { id: 3, bookId: 3, customerId: 2 },
-    ]
+    ];
 
-    borrowingsChanged = new Subject<Borrowing[]>();
-    borrowingId: number;
+    $borrowingsChanged = new Subject<Borrowing[]>();
+    $customerBorrowingsChanged = new Subject<Borrowing[]>();
+
+    constructor(private bookService: BookService) { }
 
     getBorrowings() {
         return this.borrowings.slice();
-
     }
 
     getBorrowingById(id: number) {
         return this.borrowings.find(borrowing => borrowing.id === id)
+    }
+
+    getBorrowingsByBookId(id: number) {
+        return this.borrowings.filter(borrowing => borrowing.bookId == id)
+    }
+
+    getBorrowingsByCustomerId(id: number) {
+        return this.borrowings.filter(borrowing => borrowing.customerId == id)
     }
 
     addBorrowing(borrowing: Omit<Borrowing, 'id'>) {
@@ -30,11 +42,22 @@ export class BorrowingService {
             autoId = 1;
         }
         this.borrowings.push({ ...borrowing, id: autoId });
+
+        this.bookService.decreseAvailabileCopies(borrowing.bookId);
     }
 
     deleteBorrowing(id: number) {
-        this.borrowingId = this.borrowings.findIndex(borrowing => borrowing.id === id);
-        this.borrowings.splice(this.borrowingId, 1);
-        this.borrowingsChanged.next(this.borrowings.slice());
+        const borrowingIndex = this.borrowings.findIndex(borrowing => borrowing.id === id);
+
+        const borrowing = this.borrowings.find(borrowing => borrowing.id === id)
+        const bookId = borrowing.bookId;
+        const customerId = borrowing.customerId;
+
+        this.borrowings.splice(borrowingIndex, 1);
+
+        this.bookService.increaseAvailabileCopies(bookId);
+
+        this.$borrowingsChanged.next(this.borrowings.slice());
+        this.$customerBorrowingsChanged.next(this.borrowings.filter(borrowing => borrowing.customerId == customerId));
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Book } from '../../../models/Book';
 import { BookService } from '../../../services/book.service';
 
@@ -25,13 +25,15 @@ export class AddBookComponent implements OnInit {
     let bookAuthor = '';
     let bookImgUrl = '';
     let isFavorite = false;
+    let availableCopies;
 
     this.bookForm = new FormGroup({
       'id': new FormControl(bookId),
       'title': new FormControl(bookTitle, Validators.required),
       'author': new FormControl(bookAuthor, Validators.required),
       'imgUrl': new FormControl(bookImgUrl, Validators.required),
-      'isFavorite': new FormControl(isFavorite)
+      'isFavorite': new FormControl(isFavorite),
+      'availableCopies': new FormControl(availableCopies, Validators.required),
     });
   }
 
@@ -41,7 +43,8 @@ export class AddBookComponent implements OnInit {
       title: this.bookForm.value['title'],
       author: this.bookForm.value['author'],
       imgUrl: this.bookForm.value['imgUrl'],
-      isFavorite: this.bookForm.value['isFavorite']
+      isFavorite: this.bookForm.value['isFavorite'],
+      availableCopies: this.bookForm.value['availableCopies']
     }
 
     this.bookService.addBook(newBook);
