@@ -1,6 +1,12 @@
 <div class="customer-list">
   <h2 class="customer-header">Customers</h2>
-  <div class="addBtn">
+  <div class="search-add">
+    <form [formGroup]="searchForm">
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input formControlName="search" pInputText />
+      </span>
+    </form>
     <p-button
       label="Add Customer"
       styleClass="p-button-success"
@@ -9,7 +15,9 @@
   </div>
   <app-customer
     class="customer"
-    *ngFor="let customer of customers"
+    *ngFor="
+      let customer of customers | customerSearchFilter : searchForm.value.search
+    "
     [customer]="customer"
   ></app-customer>
 </div>

@@ -31,6 +31,8 @@ import { BorrowingComponent } from './components/borrowings-page/borrowing/borro
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerBorrowingsComponent } from './components/customers-page/customer-borrowings/customer-borrowings.component';
 import { CustomerBookComponent } from './components/customers-page/customer-book/customer-book.component';
+import { SearchFilterPipe } from './pipes/book-search-filter.pipe';
+import { CustomerSearchFilterPipe } from './pipes/customer-search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { CustomerBookComponent } from './components/customers-page/customer-book
     BorrowingComponent,
     CustomerBorrowingsComponent,
     CustomerBookComponent,
+    SearchFilterPipe,
+    CustomerSearchFilterPipe,
   ],
   imports: [
     BrowserModule,

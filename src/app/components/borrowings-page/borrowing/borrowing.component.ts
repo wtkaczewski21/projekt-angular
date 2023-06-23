@@ -21,7 +21,6 @@ export class BorrowingComponent implements OnInit {
     private bookService: BookService,
     private customerService: CustomerService) { }
 
-
   ngOnInit() {
     this.book = this.bookService.getBookById(this.borrowing.bookId)
     this.customer = this.customerService.getCustomerById(this.borrowing.customerId)

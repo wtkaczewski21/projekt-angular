@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/models/Customer';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-customers-list',
@@ -13,10 +14,12 @@ export class CustomersListComponent implements OnInit, OnDestroy {
   customers: Customer[];
   id: number;
   private subscription: Subscription;
+  searchForm;
 
   constructor(private customerService: CustomerService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {
 
   }
 
@@ -27,6 +30,10 @@ export class CustomersListComponent implements OnInit, OnDestroy {
         this.customers = customers;
       }
     )
+
+    this.searchForm = this.formBuilder.group({
+      search: '',
+    });
   };
 
   onNewCustomer() {

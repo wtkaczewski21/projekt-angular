@@ -7,8 +7,8 @@ import { Injectable } from "@angular/core";
 export class BorrowingService {
     private borrowings: Array<Borrowing> = [
         { id: 1, bookId: 1, customerId: 1 },
-        { id: 2, bookId: 2, customerId: 3 },
-        { id: 3, bookId: 3, customerId: 2 },
+        { id: 2, bookId: 2, customerId: 2 },
+        { id: 3, bookId: 5, customerId: 3 },
     ];
 
     $borrowingsChanged = new Subject<Borrowing[]>();

@@ -1,11 +1,21 @@
 <div class="all-books-list">
   <h2 class="all-books-header">Chose your book</h2>
-  <div class="addBtn">
+  <div class="search-add">
+    <form [formGroup]="searchForm">
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input formControlName="search" pInputText />
+      </span>
+    </form>
     <p-button
       label="Add Book"
       styleClass="p-button-success"
       (onClick)="onNewBook()"
     ></p-button>
   </div>
-  <app-book class="book" *ngFor="let book of books" [book]="book"></app-book>
+  <app-book
+    class="book"
+    *ngFor="let book of books | bookSearchFilter : searchForm.value.search"
+    [book]="book"
+  ></app-book>
 </div>

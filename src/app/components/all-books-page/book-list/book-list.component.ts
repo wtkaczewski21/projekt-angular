@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Book } from '../../../models/Book';
 import { BookService } from '../../../services/book.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-book-list',
@@ -14,10 +15,12 @@ export class BookListComponent implements OnInit, OnDestroy {
   books: Book[];
   id: number;
   private subscription: Subscription;
+  searchForm;
 
   constructor(private bookService: BookService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {
 
   }
 
@@ -28,6 +31,10 @@ export class BookListComponent implements OnInit, OnDestroy {
         this.books = books;
       }
     )
+
+    this.searchForm = this.formBuilder.group({
+      search: '',
+    });
   };
 
   onNewBook() {
