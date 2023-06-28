@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
+
 import { Book } from '../../../models/Book';
 import { BookService } from '../../../services/book.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-book-list',
@@ -12,17 +13,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 
 export class BookListComponent implements OnInit, OnDestroy {
+
   books: Book[];
-  id: number;
   private subscription: Subscription;
   searchForm;
 
   constructor(private bookService: BookService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) {
-
-  }
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.books = this.bookService.getBooks();

@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerService } from 'src/app/services/customer.service';
+
 import { Customer } from 'src/app/models/Customer';
+import { CustomerService } from 'src/app/services/customer.service';
 import { BorrowingService } from 'src/app/services/borrowing.service';
 
 @Component({
@@ -10,15 +11,13 @@ import { BorrowingService } from 'src/app/services/borrowing.service';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent {
+
   @Input() customer: Customer;
-  // id: number
 
   constructor(private customerService: CustomerService,
     private borrowingService: BorrowingService,
     private router: Router,
-    private route: ActivatedRoute) {
-
-  }
+    private route: ActivatedRoute) { }
 
   onDisplayBorrowings() {
     this.router.navigate([this.customer.id + '/' + this.customer.username + '/borrowed-books'], { relativeTo: this.route });

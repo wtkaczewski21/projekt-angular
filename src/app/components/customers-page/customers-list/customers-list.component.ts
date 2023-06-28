@@ -11,8 +11,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./customers-list.component.css']
 })
 export class CustomersListComponent implements OnInit, OnDestroy {
+
   customers: Customer[];
-  id: number;
   private subscription: Subscription;
   searchForm;
 
@@ -25,7 +25,7 @@ export class CustomersListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.customers = this.customerService.getCustomers();
-    this.subscription = this.customerService.customersChanged.subscribe(
+    this.subscription = this.customerService.$customersChanged.subscribe(
       (customers: Customer[]) => {
         this.customers = customers;
       }

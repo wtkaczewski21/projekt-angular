@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
-import { CoreModule } from './core.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -18,7 +17,6 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    CoreModule,
   ],
   bootstrap: [AppComponent]
 })

@@ -24,6 +24,8 @@
     <input
       class="ng-touched"
       type="number"
+      min="0"
+      oninput="validity.valid||(value='');"
       id="availableCopies"
       pInputText
       formControlName="availableCopies"

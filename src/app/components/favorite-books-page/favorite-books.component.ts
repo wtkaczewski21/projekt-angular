@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { Book } from 'src/app/models/Book';
 import { BookService } from 'src/app/services/book.service';
 
@@ -12,8 +13,7 @@ export class FavoriteBooksComponent implements OnInit, OnDestroy {
   favoriteBooks: Book[];
   private subscription: Subscription;
 
-  constructor(private bookService: BookService) {
-  }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
     this.favoriteBooks = this.bookService.getFavoriteBooks();

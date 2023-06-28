@@ -25,4 +25,5 @@ import { CustomerSearchFilterPipe } from "src/app/pipes/customer-search-filter.p
     ],
     imports: [RouterModule, CustomersRoutingModule, SharedModule],
 })
+
 export class CustomersModule { }

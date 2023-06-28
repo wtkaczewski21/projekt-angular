@@ -9,7 +9,7 @@ export class CustomerSearchFilterPipe implements PipeTransform {
     value: { username: string; firstName: string; lastName: string }[],
     search: string
   ): { username: string; firstName: string; lastName: string }[] {
-    if (value) {
+    if (value[0] !== undefined) {
       const regexp = new RegExp(search, 'i');
       const properties = Object.keys(value[0]);
       return [

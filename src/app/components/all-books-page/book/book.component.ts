@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Book } from '../../../models/Book';
 import { BookService } from '../../../services/book.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { BorrowingService } from 'src/app/services/borrowing.service';
 
 @Component({
@@ -10,15 +11,13 @@ import { BorrowingService } from 'src/app/services/borrowing.service';
     styleUrls: ['./book.component.css']
 })
 export class BookComponent {
+
     @Input() book: Book;
-    // id: number;
 
     constructor(private bookService: BookService,
         private borrowingService: BorrowingService,
         private router: Router,
-        private route: ActivatedRoute) {
-
-    }
+        private route: ActivatedRoute) { }
 
     favoritesToggle() {
         this.book.isFavorite ? this.book.isFavorite = false : this.book.isFavorite = true;

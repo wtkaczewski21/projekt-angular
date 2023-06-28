@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerService } from 'src/app/services/customer.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { Customer } from 'src/app/models/Customer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -10,11 +11,11 @@ import { Customer } from 'src/app/models/Customer';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
+
   customerForm: FormGroup;
 
   constructor(private customerService: CustomerService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.initForm();

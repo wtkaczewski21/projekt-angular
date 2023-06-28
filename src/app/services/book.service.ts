@@ -1,6 +1,9 @@
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import { Book } from '../models/Book';
 
+@Injectable({ providedIn: 'root' })
 export class BookService {
     private books: Array<Book> = [
         { id: 1, title: 'Harry Potter', author: 'J.K. Rowling', imgUrl: 'https://m.media-amazon.com/images/I/71HbYElfY0L._AC_UF1000,1000_QL80_.jpg', isFavorite: true, availableCopies: 5 },
@@ -13,14 +16,13 @@ export class BookService {
 
     $booksChanged = new Subject<Book[]>();
     $favoriteBooksChanged = new Subject<Book[]>();
-    bookId: number;
 
     getBooks() {
         return this.books.slice();
     }
 
     getFavoriteBooks() {
-        return this.books.filter(book => book.isFavorite == true);
+        return this.books.filter(book => book.isFavorite === true);
     }
 
     getBookById(id: number) {
@@ -55,8 +57,8 @@ export class BookService {
     }
 
     deleteBook(id: number) {
-        this.bookId = this.books.findIndex(book => book.id === id);
-        this.books.splice(this.bookId, 1);
+        const bookId = this.books.findIndex(book => book.id === id);
+        this.books.splice(bookId, 1);
         this.$booksChanged.next(this.books.slice());
     }
 }

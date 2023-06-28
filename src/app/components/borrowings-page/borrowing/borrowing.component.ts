@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Borrowing } from 'src/app/models/Borrowing';
 import { BorrowingService } from 'src/app/services/borrowing.service';
 import { Book } from 'src/app/models/Book';
@@ -12,6 +13,7 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./borrowing.component.css']
 })
 export class BorrowingComponent implements OnInit {
+
   @Input() borrowing: Borrowing;
   book: Book;
   customer: Customer;

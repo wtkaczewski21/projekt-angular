@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Book } from '../../../models/Book';
 import { BookService } from '../../../services/book.service';
 
@@ -10,6 +11,7 @@ import { BookService } from '../../../services/book.service';
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent implements OnInit {
+
   bookForm: FormGroup;
 
   constructor(private bookService: BookService,

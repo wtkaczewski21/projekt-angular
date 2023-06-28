@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+
 import { BorrowingsPageComponent } from "./borrowings-page.component";
 import { BorrowingsListComponent } from "./borrowings-list/borrowings-list.component";
 import { NewBorrowingComponent } from "./new-borrowing/new-borrowing.component";

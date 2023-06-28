@@ -1,6 +1,9 @@
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import { Customer } from '../models/Customer';
 
+@Injectable({ providedIn: 'root' })
 export class CustomerService {
     private customers: Array<Customer> = [
         { id: 1, username: 'RLupin', firstName: 'Remus', lastName: 'Lupin' },
@@ -8,7 +11,7 @@ export class CustomerService {
         { id: 3, username: 'JSnow', firstName: 'John', lastName: 'Snow' },
     ]
 
-    customersChanged = new Subject<Customer[]>();
+    $customersChanged = new Subject<Customer[]>();
     customerId: number;
 
     getCustomers() {
@@ -39,6 +42,6 @@ export class CustomerService {
     deleteCustomer(id: number) {
         this.customerId = this.customers.findIndex(customer => customer.id === id);
         this.customers.splice(this.customerId, 1);
-        this.customersChanged.next(this.customers.slice());
+        this.$customersChanged.next(this.customers.slice());
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { BookService } from 'src/app/services/book.service';
 import { Book } from 'src/app/models/Book';
 
@@ -10,12 +11,13 @@ import { Book } from 'src/app/models/Book';
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
+
   id: number;
   bookForm: FormGroup;
 
   constructor(private bookService: BookService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(

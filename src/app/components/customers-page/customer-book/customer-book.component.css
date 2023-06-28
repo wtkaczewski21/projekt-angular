@@ -5,13 +5,16 @@
 }
 
 .book-img {
-    width: 100%;
+    width: 90%;
     height: 250px;
+    padding-top: 10px;
     border-radius: 8px;
 }
+
 .book-details{
     padding-bottom: 8px;
 }
+
 .book-details p {
     text-align: center;
     font-size: 18px;

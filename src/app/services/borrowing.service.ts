@@ -1,9 +1,10 @@
+import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+
 import { Borrowing } from "../models/Borrowing";
 import { BookService } from "./book.service";
-import { Injectable } from "@angular/core";
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class BorrowingService {
     private borrowings: Array<Borrowing> = [
         { id: 1, bookId: 1, customerId: 1 },

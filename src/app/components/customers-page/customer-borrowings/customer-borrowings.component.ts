@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+
 import { Borrowing } from 'src/app/models/Borrowing';
 import { BorrowingService } from 'src/app/services/borrowing.service';
 
@@ -9,7 +10,8 @@ import { BorrowingService } from 'src/app/services/borrowing.service';
   templateUrl: './customer-borrowings.component.html',
   styleUrls: ['./customer-borrowings.component.css']
 })
-export class CustomerBorrowingsComponent implements OnInit {
+export class CustomerBorrowingsComponent implements OnInit, OnDestroy {
+
   borrowings: Borrowing[];
   customerId: number;
   private subscription: Subscription;
@@ -32,4 +34,8 @@ export class CustomerBorrowingsComponent implements OnInit {
       }
     )
   };
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }
