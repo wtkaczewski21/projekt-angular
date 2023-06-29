@@ -31,3 +31,20 @@
     display: flex;
     justify-content: flex-end;
 }
+
+@media screen and (max-width: 950px) {
+    .borrowing {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .book {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .book-details {
+        margin-left: 0;
+        text-align: center
+    }
+}

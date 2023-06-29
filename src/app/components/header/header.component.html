@@ -1,15 +1,23 @@
 <header class="header">
-  <a routerLink="/">
-    <div class="logo">
+  <div class="logo">
+    <a routerLink="/">
       <img
         class="logo-img"
         src="../../../assets/Book-Logo-PNG-Photos.png"
         alt="logo"
       />
       <h1 class="logo-text">{{ logoText }}</h1>
+    </a>
+  </div>
+  <div class="menuBtn">
+    <div class="menu-icon" *ngIf="isMenuOpen" (click)="toggleMenu()">
+      <i class="pi pi-times"></i>
     </div>
-  </a>
-  <ul class="header-links">
+    <div class="menu-icon" *ngIf="!isMenuOpen" (click)="toggleMenu()">
+      <i class="pi pi-bars"></i>
+    </div>
+  </div>
+  <ul class="header-links" [class.is-open]="isMenuOpen">
     <li><a class="header-link" routerLink="all-books">All Books</a></li>
     <li>
       <a class="header-link" routerLink="favorite-books">Favorite books</a>
